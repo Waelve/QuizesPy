@@ -46,7 +46,7 @@
     }
   </style>
   <script>
-    let tiempo = 7;
+    let tiempo = 10;
     let current = 0;
     let total = {{ preguntas | length }};
     let interval;
@@ -57,7 +57,7 @@
         document.getElementById("quizForm").submit();
         return;
       }
-      tiempo = 7;
+      tiempo = 10;
       document.getElementById("temporizador").textContent = `Tiempo restante: ${tiempo}s`;
       interval = setInterval(() => {
         if (respuestaSeleccionada) return; // Si ya se seleccionó una respuesta, no seguir el temporizador
