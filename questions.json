@@ -1,0 +1,44 @@
+[
+    {
+      "pregunta": "¿Cuál es la capital de Francia?",
+      "opciones": ["París", "Roma", "Madrid", "Berlín"],
+      "respuesta": "París",
+      "categoria": "Geografía",
+      "dificultad": 1
+    },
+    {
+      "pregunta": "¿Quién pintó la Mona Lisa?",
+      "opciones": ["Van Gogh", "Da Vinci", "Picasso", "Rembrandt"],
+      "respuesta": "Da Vinci",
+      "categoria": "Arte",
+      "dificultad": 2
+    },
+    {
+      "pregunta": "¿Cuánto es 7 x 8?",
+      "opciones": ["54", "56", "64", "58"],
+      "respuesta": "56",
+      "categoria": "Matemáticas",
+      "dificultad": 1
+    },
+    {
+      "pregunta": "¿Cuál es el río más largo del mundo?",
+      "opciones": ["Amazonas", "Nilo", "Yangtsé", "Mississippi"],
+      "respuesta": "Nilo",
+      "categoria": "Geografía",
+      "dificultad": 2
+    },
+    {
+      "pregunta": "¿Qué artista pintó 'La noche estrellada'?",
+      "opciones": ["Van Gogh", "Monet", "Goya", "Dalí"],
+      "respuesta": "Van Gogh",
+      "categoria": "Arte",
+      "dificultad": 2
+    },
+    {
+      "pregunta": "¿Qué número es primo?",
+      "opciones": ["49", "51", "53", "55"],
+      "respuesta": "53",
+      "categoria": "Matemáticas",
+      "dificultad": 3
+    }
+  ]

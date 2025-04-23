@@ -1,0 +1,52 @@
+[
+    {
+        "nombre": "CC",
+        "puntaje": 11,
+        "tiempo": 10.16
+    },
+    {
+        "nombre": "SFTP",
+        "puntaje": 11,
+        "tiempo": 42.11
+    },
+    {
+        "nombre": "Cindy",
+        "puntaje": 11,
+        "tiempo": 42.11
+    },
+    {
+        "nombre": "Wa",
+        "puntaje": 10,
+        "tiempo": 35.09
+    },
+    {
+        "nombre": "CC",
+        "puntaje": 9,
+        "tiempo": 8.26
+    },
+    {
+        "nombre": "CC",
+        "puntaje": 9,
+        "tiempo": 11.7
+    },
+    {
+        "nombre": "C1",
+        "puntaje": 9,
+        "tiempo": 11.94
+    },
+    {
+        "nombre": "SFTP",
+        "puntaje": 9,
+        "tiempo": 35.1
+    },
+    {
+        "nombre": "Wa3",
+        "puntaje": 9,
+        "tiempo": 35.11
+    },
+    {
+        "nombre": "Temp2",
+        "puntaje": 8,
+        "tiempo": 9.76
+    }
+]
