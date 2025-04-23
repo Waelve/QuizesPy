@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Quiz</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #00c6ff, #0072ff);
+      font-family: 'Segoe UI', sans-serif;
+      color: #333;
+      padding: 20px;
+    }
+    form {
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      max-width: 800px;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+    fieldset {
+      margin-bottom: 20px;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      padding: 10px;
+    }
+    legend {
+      font-weight: bold;
+    }
+    .temporizador {
+      font-size: 18px;
+      font-weight: bold;
+      color: #e63946;
+      text-align: right;
+      margin-bottom: 10px;
+    }
+    button {
+      background-color: #0072ff;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      display: block;
+      margin: auto;
+    }
+  </style>
+  <script>
+    let tiempo = 7;
+    let current = 0;
+    let total = {{ preguntas | length }};
+    let interval;
+    let respuestaSeleccionada = false; // Variable para comprobar si ya se seleccionó respuesta
+
+    function iniciarTemporizador() {
+      if (current >= total) {
+        document.getElementById("quizForm").submit();
+        return;
+      }
+      tiempo = 7;
+      document.getElementById("temporizador").textContent = `Tiempo restante: ${tiempo}s`;
+      interval = setInterval(() => {
+        if (respuestaSeleccionada) return; // Si ya se seleccionó una respuesta, no seguir el temporizador
+        tiempo--;
+        document.getElementById("temporizador").textContent = `Tiempo restante: ${tiempo}s`;
+        if (tiempo <= 0) {
+          clearInterval(interval);
+          current++;
+          mostrarPregunta(current);
+        }
+      }, 1000);
+    }
+
+    function mostrarPregunta(index) {
+      let preguntas = document.querySelectorAll(".pregunta-bloque");
+      preguntas.forEach((p, i) => {
+        p.style.display = (i === index ? "block" : "none");
+      });
+      if (index < total) {
+        respuestaSeleccionada = false; // Resetear la bandera
+        iniciarTemporizador();
+      } else {
+        document.getElementById("quizForm").submit();
+      }
+    }
+
+    function seleccionarRespuesta(preguntaIndex, opcion) {
+      // Marcar la respuesta seleccionada
+      document.querySelector(`input[name="pregunta_${preguntaIndex}"][value="${opcion}"]`).checked = true;
+      respuestaSeleccionada = true; // Indicar que se seleccionó una respuesta
+      // Detener el temporizador y avanzar a la siguiente pregunta
+      clearInterval(interval);
+      current++;
+      mostrarPregunta(current);
+    }
+
+    window.onload = () => {
+      mostrarPregunta(0);
+    };
+  </script>
+</head>
+<body>
+  <h1>¡Suerte, {{ nombre }}!</h1>
+  <div class="temporizador" id="temporizador"></div>
+  <form method="POST" action="/resultado" id="quizForm">
+    {% for pregunta in preguntas %}
+      {% set i = loop.index0 %}
+      <fieldset class="pregunta-bloque" style="display:none">
+        <legend>{{ pregunta.pregunta }} <small>(Categoría: {{ pregunta.categoria }}, Dificultad: {{ pregunta.dificultad }})</small></legend>
+        {% for opcion in pregunta.opciones %}
+          <label onclick="seleccionarRespuesta({{ i }}, '{{ opcion }}')">
+            <input type="radio" name="pregunta_{{ i }}" value="{{ opcion }}"> {{ opcion }}
+          </label><br>
+        {% endfor %}
+      </fieldset>
+    {% endfor %}
+    <button type="submit">Enviar respuestas</button>
+  </form>
+</body>
+</html>
