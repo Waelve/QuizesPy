@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for, session
 import json, random, time, os
 
 app = Flask(__name__)
-app.secret_key = 'clave_secreta_para_sesiones'
+app.secret_key = os.getenv('SECRET_KEY', '1ddd82cdf5d7a136b40ff0e1c92d35ca')
 
 RESULTADOS_FILE = 'resultados.json'
 
