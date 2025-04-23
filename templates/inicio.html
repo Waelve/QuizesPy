@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Comienza el Quiz</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #ff9966, #ff5e62);
+      font-family: 'Segoe UI', sans-serif;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    form, .extra-buttons {
+      background: #fff;
+      color: #333;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      margin-top: 20px;
+      text-align: center;
+    }
+    input {
+      padding: 10px;
+      font-size: 16px;
+      margin-bottom: 15px;
+      width: 100%;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    button {
+      background: #ff5e62;
+      color: white;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    a.button {
+      display: inline-block;
+      text-decoration: none;
+      background: #333;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Bienvenido al Quiz Competitivo 🎮</h1>
+  <form method="POST">
+    <input type="text" name="nombre" placeholder="Ingresa tu nombre" required />
+    <button type="submit">Comenzar</button>
+  </form>
+  
+  <div class="extra-buttons">
+    <p>¿Solo quieres ver la clasificación?</p>
+    <a class="button" href="/clasificacion">Ver Clasificación 🏆</a>
+  </div>
+</body>
+</html>
